@@ -1,12 +1,12 @@
-import os
-from flask import Flask
+import telebot
 
-app = Flask(__name__)
+TOKEN = '9059878855:AAGQMCOk-2o9EMik1-ADrCoYxqJcU570-4M'
+bot = telebot.TeleBot(TOKEN)
 
-@app.route('/')
-def home():
-    return "Bot is running successfully!"
 
-if __name__ == '__main__':
-    port = int(os.environ.get("PORT", 10000))
-    app.run(host='0.0.0.0', port=port)
+@bot.message_handler(commands=['start'])
+def send_welcome(message):
+  bot.reply_to(message, 'Hello! Bot is running successfully!')
+
+
+bot.infinity_polling()
