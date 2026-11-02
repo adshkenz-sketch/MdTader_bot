@@ -1,5 +1,12 @@
+
+import os
 import telebot
-TOKEN = '9068473030:AAEJ1vX49_x7Ufwffz6VyTK5pT3RDStaeqY'
+
+TOKEN = os.getenv("BOT_TOKEN")
+
+if not TOKEN:
+    raise ValueError("BOT_TOKEN is missing!")
+
 bot = telebot.TeleBot(TOKEN)
 
 @bot.message_handler(commands=['start'])
