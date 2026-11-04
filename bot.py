@@ -64,11 +64,16 @@ def get_usd_signals(message):
         
     except Exception as e:
         bot.reply_to(message, f"এরর: সিগন্যাল ফেচ করা যাচ্ছে না। ({str(e)})")
-# বটকে চালু রাখার জন্য নিচের লাইনটি দিতে হবে
-if __name__ == '__main__':
-    print("Bot is running...")
-    bot.infinity_polling()
 @bot.message_handler(commands=['usdsignal'])
 def send_usd_signal(message):
     text = "📈 *EUR/USD Signal*\n\n🟢 Action: BUY\n📊 Trend: Bullish"
     bot.reply_to(message, text, parse_mode='Markdown')
+@bot.message_handler(commands=['usdsignal'])
+def send_usd_signal(message):
+    text = "💶 *EUR/USD Signal*\n\n🟢 Action: BUY\n📈 Trend: Bullish"
+    bot.reply_to(message, text, parse_mode='Markdown')
+
+# আগের লেখার নিচে এই অংশটি বসিয়ে দিন:
+if __name__ == '__main__':
+    print("Bot is running...")
+    bot.infinity_polling()
