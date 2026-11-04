@@ -62,11 +62,15 @@ def get_usd_signals(message):
         )
         bot.reply_to(message, response_text, parse_mode="Markdown")     
     except Exception as e:
-        bot.reply_to(message, f"এরর: সিগন্যাল ফেচ করা যাচ্ছে না। ({str(e)})")
+bot.reply_to(message, f"এরর: সিগন্যাল ফেচ করা যাচ্ছে না। ({str(e)})")
 @bot.message_handler(commands=['usdsignal'])
 def send_usd_signal(message):
-    text = "📈 *EUR/USD Signal*\n\n🟢 Action: BUY\n📊 Trend: Bullish"
+    text = "💶 *EUR/USD Signal*\n\n🟢 Action: BUY\n📈 Trend: Bullish"
     bot.reply_to(message, text, parse_mode='Markdown')
 if __name__ == '__main__':
     print("Bot is running...")
     bot.infinity_polling()
+
+
+
+                 
