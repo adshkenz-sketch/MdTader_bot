@@ -64,3 +64,7 @@ def get_usd_signals(message):
         
     except Exception as e:
         bot.reply_to(message, f"এরর: সিগন্যাল ফেচ করা যাচ্ছে না। ({str(e)})")
+# বটকে চালু রাখার জন্য নিচের লাইনটি দিতে হবে
+if __name__ == '__main__':
+    print("Bot is running...")
+    bot.infinity_polling()
