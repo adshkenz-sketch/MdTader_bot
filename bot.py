@@ -51,27 +51,18 @@ def get_usd_signals(message):
         if latest_price > previous_price:
             signal = "📈 UP (Call)"
         else:
-            signal = "📉 DOWN (Put)"
-            
+            signal = "📉 DOWN  (Put)  
+
+try:
         response_text = (
-            f"🎯 **USD Real Market Analysis**\n\n"
+            f"🔴 **USD Real Market Analysis**\n\n"
             f"• Pair: EUR/USD\n"
             f"• Current Rate: {latest_price:.5f}\n"
             f"• Signal: {signal}\n\n"
-            f"⚠️ *সতর্কতা:* সিগন্যালটি নিশ্চিত করতে চার্ট অ্যানালাইসিস মিলিয়ে নিন।"
+            f"⚠️ *সতর্কতা:* সিগন্যালটি নিশ্চিত করতে চার্ট অ্যানালিসিস মিলিয়ে নিন!"
         )
-        bot.reply_to(message, response_text, parse_mode="Markdown")     
-
-except Exception as e:
+        bot.reply_to(message, response_text, parse_mode="Markdown")
+    except Exception as e:
         bot.reply_to(message, f"এরর: সিগন্যাল ফেচ করা যাচ্ছে না! ({str(e)})")
-
-@bot.message_handler(commands=['usdsignal'])
-def send_usd_signal(message):
-    text = "📈 *EUR/USD Signal*\n\n🟢 Action: BUY\n📈 Trend: Bullish"
-    bot.reply_to(message, text, parse_mode='Markdown')
-
-if __name__ == '__main__':
-    print("Bot is running...")
-    bot.infinity_polling()
 
                  
