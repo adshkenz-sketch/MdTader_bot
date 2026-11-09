@@ -45,7 +45,7 @@ try:
         if latest_price > previous_price:
             signal = "🟢 UP (Call)"
         else:
-            signal = "🔴 DOWN (Put)"
+          signal = "🔴 DOWN (Put)"
             
         response_text += (
             f"• **Pair:** {symbol}\n"
