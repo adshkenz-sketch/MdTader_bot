@@ -147,9 +147,15 @@ def get_best_market_signal(message):
             
     except Exception as e:
         bot.reply_to(message, f"❌ এরর: সিগন্যাল জেনারেট করা যাচ্ছে না! ({str(e)})")
-
 def run_bot():
-    bot.infinity_polling()
+    time.sleep(3)  # সার্ভার স্টার্ট হওয়ার পর ৩ সেকেন্ড অপেক্ষা করবে
+    try:
+        bot.remove_webhook()  # আগের কোনো ওয়েভহুক থাকলে তা রিমুভ করে দেবে
+        time.sleep(2)
+    except Exception as e:
+        print(f"Webhook error: {e}")
+    
+    bot.infinity_polling(none_stop=True, interval=1, timeout=20)
 
 if __name__ == "__main__":
     t = threading.Thread(target=run_bot, daemon=True)
