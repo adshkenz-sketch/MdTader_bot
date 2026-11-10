@@ -150,7 +150,7 @@ def get_best_market_signal(message):
 def run_bot():
     time.sleep(3)  # সার্ভার স্টার্ট হওয়ার পর ৩ সেকেন্ড অপেক্ষা করবে
     try:
-        bot.remove_webhook()  # আগের কোনো ওয়েভহুক থাকলে তা রিমুভ করে দেবে
+        bot.remove_webhook(remove_pending_updates=True)  # আগের সব পেন্ডিং আপডেট ও ওয়েভহুক ক্লিয়ার করবে
         time.sleep(2)
     except Exception as e:
         print(f"Webhook error: {e}")
