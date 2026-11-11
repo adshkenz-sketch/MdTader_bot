@@ -100,7 +100,7 @@ def get_best_market_signal(message):
                     
                     signal_type = ""
                     # CALL / BUY সিগন্যাল লজিক
-                    if (close_price > ema_50) and (ema_50 > ema_200) and (40 < rsi < 65) and is_near_support:
+                    if (close_price > ema_50) and (ema_50 > ema_200) and (40 < rsi < 65) and is_
                         signal_type = "🟢 CALL (Buy - Uptrend at Support)"
                     
                     # PUT / SELL সিগন্যাল লজিক
